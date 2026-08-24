@@ -52,7 +52,7 @@ export function Header({
         <button
           type="button"
           onClick={() => setOpen((v) => !v)}
-          className="md:hidden inline-flex items-center justify-center w-10 h-10 rounded-lg border border-brand-border/10 text-brand-text"
+          className="lg:hidden inline-flex items-center justify-center w-10 h-10 rounded-lg border border-brand-border/10 text-brand-text"
           aria-label="Abrir menú"
           aria-expanded={open}
         >
@@ -67,7 +67,7 @@ export function Header({
 
         <nav
           className={clsx(
-            "md:flex md:items-center md:gap-6",
+            "lg:flex lg:items-center lg:gap-6",
             open
               ? "absolute left-0 right-0 top-full flex flex-col items-stretch gap-2 bg-brand-surface border-b border-brand-border/5 p-5"
               : "hidden"
@@ -97,7 +97,7 @@ export function Header({
           <Link
             href={ctaHref}
             onClick={() => setOpen(false)}
-            className="btn-primary md:ml-2"
+            className="btn-primary lg:ml-2"
           >
             {ctaLabel}
           </Link>

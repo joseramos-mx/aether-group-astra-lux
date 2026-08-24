@@ -12,8 +12,8 @@ import { Marquee } from "@/components/Marquee";
 import { waUrl } from "@/lib/config";
 
 export const metadata: Metadata = {
-  title: "Prepa Novaris Pax",
-  description: "Preparatoria: innovación, cultura, servicio.",
+  title: "Secundaria y Prepa Novaris Pax",
+  description: "Secundaria y preparatoria: innovación, cultura, servicio.",
 };
 
 const navLinks = [
@@ -26,9 +26,9 @@ export default function PrepaPage() {
   return (
     <div data-brand="prepa" className="bg-brand-bg text-brand-text">
       <Header
-        logo="/img/prepa-novaris-pax-logo.png"
-        logoAlt="Prepa Novaris Pax"
-        brandLabel="Prepa Novaris Pax"
+        logo="/img/secundaria-prepa-logo.png"
+        logoAlt="Secundaria y Prepa Novaris Pax"
+        brandLabel="Novaris Pax"
         homeHref="/prepa"
         navLinks={navLinks}
         ctaLabel="Agendar visita"
@@ -51,15 +51,23 @@ export default function PrepaPage() {
 
           <div className="container-page relative z-10 text-center">
             <Reveal>
-              <div className="inline-flex items-center gap-2 rounded-full bg-white/70 backdrop-blur px-3 py-1.5 text-[11px] tracking-[0.24em] uppercase text-[rgb(var(--brand-ink))] shadow-sm">
-                <Image src="/img/prepa-novaris-pax-logo.png" alt="" width={22} height={22} />
-                Prepa Novaris Pax
+              <Image
+                src="/img/secundaria-prepa-logo.png"
+                alt="Secundaria y Prepa Novaris Pax"
+                width={1865}
+                height={457}
+                priority
+                className="mx-auto h-14 md:h-16 w-auto object-contain"
+              />
+              <div className="mt-5 inline-flex items-center gap-2 rounded-full bg-white/70 backdrop-blur px-3 py-1.5 text-[11px] tracking-[0.24em] uppercase text-[rgb(var(--brand-ink))] shadow-sm">
+                <span className="w-1.5 h-1.5 rounded-full bg-brand-accent" />
+                Novaris Pax
               </div>
               <h1 className="leading-[1.05] mt-6 text-[clamp(2.4rem,6vw,4.2rem)] max-w-[14ch] mx-auto">
                 Innovación. Cultura. Servicio.
               </h1>
               <p className="mt-5 max-w-lg mx-auto text-[rgb(var(--brand-ink)/0.72)] text-lg">
-                Preparatoria que forma para la universidad y para la vida.
+                Secundaria y preparatoria que forman para la universidad y para la vida.
               </p>
 
               <div className="mt-8">
@@ -80,7 +88,7 @@ export default function PrepaPage() {
                   Admisión
                 </a>
                 <a
-                  href={waUrl("Hola, quiero información de Prepa Novaris Pax.")}
+                  href={waUrl("Hola, quiero información de Secundaria y Prepa Novaris Pax.")}
                   target="_blank"
                   rel="noopener"
                   className="btn-whatsapp"
@@ -153,7 +161,7 @@ export default function PrepaPage() {
                 primary={{ label: "Informes", href: "#contacto" }}
                 whatsapp={{
                   label: "WhatsApp",
-                  message: "Hola, quiero agendar visita a Prepa Novaris Pax.",
+                  message: "Hola, quiero agendar visita a Secundaria y Prepa Novaris Pax.",
                 }}
               />
             </div>
@@ -161,27 +169,27 @@ export default function PrepaPage() {
         </section>
 
         <ContactBlock
-          origin="Prepa Novaris Pax"
+          origin="Secundaria y Prepa Novaris Pax"
           title="Informes de admisión"
           description="Te acompañamos en el proceso."
           infoTitle="Admisiones"
           infoDescription="Lunes a viernes de 9:00 a 18:00 h."
           addressLabel="Campus"
-          interestLabel="Semestre"
-          options={["1er semestre", "3er semestre", "5º semestre", "Informes"]}
-          waMessage="Hola, quiero información de Prepa Novaris Pax."
+          interestLabel="Nivel"
+          options={["Secundaria", "Preparatoria", "Informes"]}
+          waMessage="Hola, quiero información de Secundaria y Prepa Novaris Pax."
           submitLabel="Solicitar informes"
         />
       </main>
 
       <Footer
-        logo="/img/prepa-novaris-pax-logo.png"
-        tagline="Prepa Novaris Pax. Group Aether Astra Lux."
-        legalLine="Prepa Novaris Pax"
+        logo="/img/secundaria-prepa-logo.png"
+        tagline="Secundaria y Prepa Novaris Pax. Group Aether Astra Lux."
+        legalLine="Secundaria y Prepa Novaris Pax"
         groupSlogan="Innovación · Cultura · Servicio"
         linkGroups={[
           {
-            title: "Prepa",
+            title: "Secundaria y Prepa",
             links: [
               { href: "#modelo", label: "Modelo" },
               { href: "#admisiones", label: "Admisiones" },
@@ -198,7 +206,7 @@ export default function PrepaPage() {
         ]}
       />
 
-      <WhatsAppFloat message="Hola, quiero informes de Prepa Novaris Pax." />
+      <WhatsAppFloat message="Hola, quiero informes de Secundaria y Prepa Novaris Pax." />
     </div>
   );
 }

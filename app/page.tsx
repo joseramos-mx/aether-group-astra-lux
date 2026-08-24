@@ -14,7 +14,7 @@ const navLinks = [
   { href: "/servicios-empresariales", label: "Servicios" },
   { href: "/capacitacion", label: "Capacitación" },
   { href: "/nosotros", label: "Nosotros" },
-  { href: "/prepa", label: "Prepa" },
+  { href: "/prepa", label: "Secundaria y Prepa" },
   { href: "#contacto", label: "Contacto" },
 ];
 
@@ -86,6 +86,42 @@ export default function HomePage() {
           </div>
         </section>
 
+        {/* UNIDADES / ACCESOS */}
+        <section className="section">
+          <div className="container-page">
+            <Reveal className="max-w-2xl mb-10">
+              <h2 className="h2">Explora el grupo.</h2>
+            </Reveal>
+
+            <div className="grid gap-6 md:grid-cols-3">
+              <UnitCard
+                num="01"
+                title="Servicios empresariales"
+                desc="Permisos, dictámenes y trámites para tu operación."
+                href="/servicios-empresariales"
+              />
+              <UnitCard
+                num="02"
+                title="Centro de capacitación"
+                desc="Cursos y talleres para personas y equipos."
+                href="/capacitacion"
+              />
+              <UnitCard
+                num="03"
+                title="Secundaria y Prepa Novaris Pax"
+                desc="Secundaria y preparatoria: innovación, cultura, servicio."
+                href="/prepa"
+                logo="/img/secundaria-prepa-logo.png"
+              />
+            </div>
+          </div>
+        </section>
+
+        <Marquee
+          variant="accent"
+          items={["Aprende", "Crece", "Transforma"]}
+        />
+
         {/* PILARES (los 4 del catálogo) */}
         <section id="servicios" className="section section-alt">
           <div className="container-page">
@@ -118,42 +154,6 @@ export default function HomePage() {
                 text="Programa Interno de Protección Civil, extintores y primeros auxilios."
               />
             </Stagger>
-          </div>
-        </section>
-
-        <Marquee
-          variant="accent"
-          items={["Aprende", "Crece", "Transforma"]}
-        />
-
-        {/* UNIDADES / ACCESOS */}
-        <section className="section">
-          <div className="container-page">
-            <Reveal className="max-w-2xl mb-10">
-              <h2 className="h2">Explora el grupo.</h2>
-            </Reveal>
-
-            <div className="grid gap-6 md:grid-cols-3">
-              <UnitCard
-                num="01"
-                title="Servicios empresariales"
-                desc="Permisos, dictámenes y trámites para tu operación."
-                href="/servicios-empresariales"
-              />
-              <UnitCard
-                num="02"
-                title="Centro de capacitación"
-                desc="Cursos y talleres para personas y equipos."
-                href="/capacitacion"
-              />
-              <UnitCard
-                num="03"
-                title="Prepa Novaris Pax"
-                desc="Preparatoria: innovación, cultura, servicio."
-                href="/prepa"
-                logo="/img/prepa-novaris-pax-logo.png"
-              />
-            </div>
           </div>
         </section>
 
@@ -216,7 +216,7 @@ export default function HomePage() {
           options={[
             "Permisos y dictámenes",
             "Capacitación de personal",
-            "Prepa Novaris Pax",
+            "Secundaria y Prepa Novaris Pax",
             "Información general",
           ]}
           interestLabel="¿Qué te interesa?"
@@ -232,7 +232,7 @@ export default function HomePage() {
             links: [
               { href: "/servicios-empresariales", label: "Servicios" },
               { href: "/capacitacion", label: "Capacitación" },
-              { href: "/prepa", label: "Prepa Novaris Pax" },
+              { href: "/prepa", label: "Secundaria y Prepa Novaris Pax" },
             ],
           },
           {
@@ -295,9 +295,9 @@ function UnitCard({
           <Image
             src={logo}
             alt=""
-            width={64}
-            height={64}
-            className="w-12 h-12 object-contain"
+            width={245}
+            height={60}
+            className="h-8 w-auto max-w-[140px] object-contain"
           />
         )}
       </div>

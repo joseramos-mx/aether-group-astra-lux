@@ -26,7 +26,7 @@ export const SITE_CONFIG = {
   whatsapp: "5216181577437",
 
   email: "contacto@aetherastralux.com",
-  address: "Blvd. Domingo Arrieta 189-A, Cantarranas, El Refugio, Durango, Dgo.",
+  address: "C. Urrea 120, Barrio de Tierra Blanca, Durango, Dgo.",
 
   formEndpoint: "",
   ga4Id: "",
@@ -41,7 +41,7 @@ export type BrandKey = "group" | "prepa" | "empresa" | "capacitacion";
 
 export const NAV_LINKS: { href: string; label: string; brand: BrandKey }[] = [
   { href: "/", label: "Inicio", brand: "group" },
-  { href: "/prepa", label: "Prepa Novaris Pax", brand: "prepa" },
+  { href: "/prepa", label: "Secundaria y Prepa Novaris Pax", brand: "prepa" },
   { href: "/servicios-empresariales", label: "Servicios", brand: "empresa" },
   { href: "/capacitacion", label: "Capacitación", brand: "capacitacion" },
 ];

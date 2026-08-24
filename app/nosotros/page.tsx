@@ -264,7 +264,7 @@ export default function NosotrosPage() {
             links: [
               { href: "/servicios-empresariales", label: "Servicios" },
               { href: "/capacitacion", label: "Capacitación" },
-              { href: "/prepa", label: "Prepa Novaris Pax" },
+              { href: "/prepa", label: "Secundaria y Prepa Novaris Pax" },
             ],
           },
           {

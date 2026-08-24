@@ -17,7 +17,7 @@ export const metadata: Metadata = {
     template: "%s · Group Aether Astra Lux",
   },
   description:
-    "Grupo Aether Astra Lux: preparatoria Novaris Pax, servicios empresariales y centro de capacitación.",
+    "Grupo Aether Astra Lux: secundaria y prepa Novaris Pax, servicios empresariales y centro de capacitación.",
   metadataBase: new URL("https://aetherastralux.com"),
   openGraph: {
     type: "website",

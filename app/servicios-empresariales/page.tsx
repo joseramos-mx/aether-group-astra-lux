@@ -86,7 +86,7 @@ export default function ServiciosPage() {
       <main>
         {/* HERO */}
         <section className="relative overflow-hidden pt-20 pb-16 md:pt-28 md:pb-20 bg-radial-accent">
-          <div className="container-page relative z-10 grid gap-12 md:grid-cols-[1.1fr_.9fr] items-center">
+          <div className="container-page relative z-10 max-w-3xl">
             <Reveal>
               <div className="inline-flex items-center gap-2 rounded-full bg-white border border-brand-navy/10 px-3 py-1.5 text-[11px] tracking-[0.24em] uppercase text-brand-navy shadow-sm">
                 <span className="w-2 h-2 rounded-full bg-brand-accent" />
@@ -112,32 +112,6 @@ export default function ServiciosPage() {
                 >
                   WhatsApp
                 </a>
-              </div>
-            </Reveal>
-
-            <Reveal delay={0.15}>
-              <div className="rounded-3xl bg-white border border-brand-navy/10 p-8 shadow-[0_20px_60px_rgba(11,37,69,0.08)]">
-                <div className="text-[11px] uppercase tracking-[0.2em] text-brand-accent mb-4">
-                  Autoridades con las que trabajamos
-                </div>
-                <ul className="grid grid-cols-2 gap-3 text-sm">
-                  {[
-                    "SDARE",
-                    "Municipio",
-                    "Protección Civil",
-                    "Sec. de Salud",
-                    "SEMARNAT",
-                    "SAT",
-                  ].map((a) => (
-                    <li
-                      key={a}
-                      className="rounded-lg bg-brand-surface border border-brand-navy/10 px-3 py-2.5 flex items-center gap-2"
-                    >
-                      <span className="w-1.5 h-1.5 rounded-full bg-brand-accent" />
-                      {a}
-                    </li>
-                  ))}
-                </ul>
               </div>
             </Reveal>
           </div>
