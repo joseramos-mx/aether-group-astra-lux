@@ -7,7 +7,7 @@ type Props = {
   title: string;
   description?: string;
   primary: { label: string; href: string };
-  whatsapp?: { label: string; message: string };
+  whatsapp?: { label: string; message: string; phone?: string };
 };
 
 export function CtaBand({ title, description, primary, whatsapp }: Props) {
@@ -32,7 +32,7 @@ export function CtaBand({ title, description, primary, whatsapp }: Props) {
           </a>
           {whatsapp && (
             <a
-              href={waUrl(whatsapp.message)}
+              href={waUrl(whatsapp.message, whatsapp.phone)}
               target="_blank"
               rel="noopener"
               className="btn-whatsapp"

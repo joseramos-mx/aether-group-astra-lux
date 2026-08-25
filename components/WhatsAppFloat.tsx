@@ -5,12 +5,15 @@ import { waUrl } from "@/lib/config";
 
 export function WhatsAppFloat({
   message = "Hola, me gustaría más información sobre sus servicios.",
+  phone,
 }: {
   message?: string;
+  /* Línea a la que escribe. Por omisión, la del grupo. */
+  phone?: string;
 }) {
   return (
     <motion.a
-      href={waUrl(message)}
+      href={waUrl(message, phone)}
       target="_blank"
       rel="noopener"
       aria-label="Escríbenos por WhatsApp"

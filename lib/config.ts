@@ -4,26 +4,28 @@ export const SITE_CONFIG = {
   tagline: "Permisos actualizados. Personal preparado. Operaciones seguras.",
   mission: "Transformamos personas, equipos e instituciones",
 
-  // Contactos principales
+  /* Líneas de WhatsApp por marca. Sustituyen a los números personales de
+     Iván Alba Navarro y Martín Estala, que se retiraron del sitio. */
   contacts: [
     {
-      name: "Iván Alba Navarro",
-      phone: "+52 618 157 7437",
-      phoneRaw: "5216181577437",
-      href: "tel:+526181577437",
+      name: "Group Aether Astra Lux",
+      phone: "618 839 8436",
+      phoneRaw: "5216188398436",
+      href: "tel:+526188398436",
     },
     {
-      name: "Martín Estala",
-      phone: "+52 442 799 6686",
-      phoneRaw: "5214427996686",
-      href: "tel:+524427996686",
+      name: "Secundaria y Prepa Novaris Pax",
+      phone: "618 839 8803",
+      phoneRaw: "5216188398803",
+      href: "tel:+526188398803",
     },
   ],
 
-  // Fallback principal (Iván) para botón WhatsApp flotante
-  phone: "+52 618 157 7437",
-  phoneHref: "tel:+526181577437",
-  whatsapp: "5216181577437",
+  // Fallback principal (grupo) para el botón flotante de WhatsApp
+  phone: "618 839 8436",
+  phoneHref: "tel:+526188398436",
+  whatsapp: "5216188398436",
+  whatsappPrepa: "5216188398803",
 
   email: "contacto@aetherastralux.com",
   address: "C. Urrea 120, Barrio de Tierra Blanca, Durango, Dgo.",

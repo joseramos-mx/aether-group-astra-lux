@@ -9,7 +9,7 @@ import { ContactBlock } from "@/components/ContactBlock";
 import { FloatingShapes } from "@/components/FloatingShapes";
 import { SubjectChips } from "@/components/SubjectChips";
 import { Marquee } from "@/components/Marquee";
-import { waUrl } from "@/lib/config";
+import { SITE_CONFIG, waUrl } from "@/lib/config";
 
 export const metadata: Metadata = {
   title: "Secundaria y Prepa Novaris Pax",
@@ -88,7 +88,7 @@ export default function PrepaPage() {
                   Admisión
                 </a>
                 <a
-                  href={waUrl("Hola, quiero información de Secundaria y Prepa Novaris Pax.")}
+                  href={waUrl("Hola, quiero información de Secundaria y Prepa Novaris Pax.", SITE_CONFIG.whatsappPrepa)}
                   target="_blank"
                   rel="noopener"
                   className="btn-whatsapp"
@@ -162,6 +162,7 @@ export default function PrepaPage() {
                 whatsapp={{
                   label: "WhatsApp",
                   message: "Hola, quiero agendar visita a Secundaria y Prepa Novaris Pax.",
+                  phone: SITE_CONFIG.whatsappPrepa,
                 }}
               />
             </div>
@@ -178,6 +179,7 @@ export default function PrepaPage() {
           interestLabel="Nivel"
           options={["Secundaria", "Preparatoria", "Informes"]}
           waMessage="Hola, quiero información de Secundaria y Prepa Novaris Pax."
+          waPhone={SITE_CONFIG.whatsappPrepa}
           submitLabel="Solicitar informes"
         />
       </main>
@@ -206,7 +208,10 @@ export default function PrepaPage() {
         ]}
       />
 
-      <WhatsAppFloat message="Hola, quiero informes de Secundaria y Prepa Novaris Pax." />
+      <WhatsAppFloat
+        message="Hola, quiero informes de Secundaria y Prepa Novaris Pax."
+        phone={SITE_CONFIG.whatsappPrepa}
+      />
     </div>
   );
 }

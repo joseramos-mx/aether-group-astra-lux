@@ -13,6 +13,9 @@ type Props = {
   showCompany?: boolean;
   submitLabel?: string;
   waMessage: string;
+  /* Fija la línea de WhatsApp de la sección. Sin esto se muestran todas
+     las líneas de SITE_CONFIG.contacts. */
+  waPhone?: string;
   addressLabel?: string;
   id?: string;
 };
@@ -28,6 +31,7 @@ export function ContactBlock({
   showCompany,
   submitLabel,
   waMessage,
+  waPhone,
   addressLabel = "Ubicación",
   id = "contacto",
 }: Props) {
@@ -45,15 +49,17 @@ export function ContactBlock({
             <p className="text-brand-muted mb-6">{infoDescription}</p>
 
             <div className="space-y-4">
-              {SITE_CONFIG.contacts.map((c) => (
+              {(waPhone
+                ? SITE_CONFIG.contacts.filter((c) => c.phoneRaw === waPhone)
+                : SITE_CONFIG.contacts
+              ).map((c) => (
                 <div
                   key={c.phone}
                   className="card flex items-start gap-4"
                 >
                   <div className="card-icon mb-0">
                     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                      <circle cx="12" cy="8" r="4" />
-                      <path d="M4 20c0-4 4-6 8-6s8 2 8 6" />
+                      <path d="M21 11.5a8.4 8.4 0 0 1-9 8.4 9 9 0 0 1-3.4-.7L3 21l1.8-5.1A8.4 8.4 0 0 1 12 3.1a8.4 8.4 0 0 1 9 8.4z" />
                     </svg>
                   </div>
                   <div className="flex-1">

@@ -74,19 +74,13 @@ export default function NosotrosPage() {
                     la Nueva Escuela Mexicana y modelo Montessori.
                   </p>
                   <a
-                    href={waUrl(
-                      "Hola Iván, vengo del sitio del grupo.",
-                      SITE_CONFIG.contacts[0].phoneRaw
-                    )}
+                    href={waUrl("Hola, quiero contactar a Iván Alba Navarro.")}
                     target="_blank"
                     rel="noopener"
                     className="btn-accent"
                   >
                     Contactar a Iván
                   </a>
-                  <div className="mt-4 text-xs text-white/50">
-                    {SITE_CONFIG.contacts[0].phone}
-                  </div>
                 </div>
               </div>
             </Reveal>
@@ -184,19 +178,13 @@ export default function NosotrosPage() {
                     internacional en programas de formación humana.
                   </p>
                   <a
-                    href={waUrl(
-                      "Hola Martín, vengo del sitio del grupo.",
-                      SITE_CONFIG.contacts[1].phoneRaw
-                    )}
+                    href={waUrl("Hola, quiero contactar a Martín Estala.")}
                     target="_blank"
                     rel="noopener"
                     className="btn-accent"
                   >
                     Contactar a Martín
                   </a>
-                  <div className="mt-4 text-xs text-white/50">
-                    {SITE_CONFIG.contacts[1].phone}
-                  </div>
                 </div>
               </div>
             </Reveal>
