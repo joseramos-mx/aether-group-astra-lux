@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_2" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 656.51 485.45">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #f5f5f7;
+      }
+
+      .cls-1, .cls-2, .cls-3, .cls-4, .cls-5 {
+        stroke-width: 0px;
+      }
+
+      .cls-2 {
+        fill: #fd4193;
+      }
+
+      .cls-3 {
+        fill: #fba11b;
+      }
+
+      .cls-4 {
+        fill: #fff;
+      }
+
+      .cls-5 {
+        fill: #6046fe;
+      }
+
+      .cls-6 {
+        fill: #171715;
+        font-family: Geist-Regular, Geist;
+        font-size: 238.01px;
+        font-variation-settings: 'wght' 400;
+      }
+    </style>
+  </defs>
+  <g id="Layer_1-2" data-name="Layer 1">
+    <rect class="cls-1" width="494.07" height="419.03" rx="28.84" ry="28.84"/>
+    <rect class="cls-5" x="72.18" y="31.46" width="494.07" height="419.03" rx="28.84" ry="28.84"/>
+    <rect class="cls-2" x="162.44" y="66.42" width="494.07" height="419.03" rx="28.84" ry="28.84"/>
+    <g>
+      <rect class="cls-4" x="270.36" y="130.37" width="238.92" height="238.92" rx="48.6" ry="48.6"/>
+      <text class="cls-6" transform="translate(270.36 320.38)"><tspan x="0" y="0">A</tspan></text>
+      <rect class="cls-3" x="352.38" y="199.27" width="238.92" height="238.92" rx="48.6" ry="48.6"/>
+      <g>
+        <circle class="cls-4" cx="420.74" cy="268.14" r="45.23"/>
+        <circle class="cls-4" cx="522.94" cy="268.14" r="45.23"/>
+        <circle class="cls-4" cx="420.74" cy="369.3" r="45.23"/>
+        <circle class="cls-4" cx="522.94" cy="369.3" r="45.23"/>
+      </g>
+    </g>
+  </g>
+</svg>

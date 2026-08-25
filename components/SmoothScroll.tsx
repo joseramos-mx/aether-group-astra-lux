@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect } from "react";
+import { MotionConfig } from "framer-motion";
 import Lenis from "lenis";
 
 export function SmoothScroll({ children }: { children: React.ReactNode }) {
@@ -24,5 +25,8 @@ export function SmoothScroll({ children }: { children: React.ReactNode }) {
     };
   }, []);
 
-  return <>{children}</>;
+  /* reducedMotion="user" hace que framer-motion desactive las animaciones de
+     transform cuando el sistema pide menos movimiento. Se resuelve al animar,
+     no al renderizar, así el HTML del servidor y el del cliente coinciden. */
+  return <MotionConfig reducedMotion="user">{children}</MotionConfig>;
 }

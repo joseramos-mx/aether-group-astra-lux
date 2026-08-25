@@ -1,83 +1,81 @@
-"use client";
-
 import Image from "next/image";
-import { motion, useReducedMotion } from "framer-motion";
-import type { ReactNode } from "react";
+import { PillButton } from "@/components/PillButton";
+import { PrepaCard } from "@/components/PrepaCard";
 
-type Props = {
-  title: ReactNode;
-  lead: ReactNode;
-  logo: string;
-  logoAlt: string;
-  primaryCta: { label: string; href: string };
-  secondaryCta?: { label: string; href: string };
-  children?: ReactNode;
-};
+const STATS = [
+  { label: "Países con presencia", value: "14" },
+  { label: "Años de experiencia", value: "+12" },
+  { label: "Reconocimientos", value: "+20" },
+  { label: "Verticales de servicio", value: "3" },
+];
 
-export function Hero({
-  title,
-  lead,
-  logo,
-  logoAlt,
-  primaryCta,
-  secondaryCta,
-  children,
-}: Props) {
-  const reduce = useReducedMotion();
+export function Hero() {
   return (
-    <section className="relative overflow-hidden bg-radial-accent pt-20 pb-14 md:pt-28 md:pb-20">
-      <div className="container-page relative z-10">
-        <div className="grid gap-10 items-center md:grid-cols-[1.15fr_.85fr]">
-          <motion.div
-            initial={{ opacity: 0, y: reduce ? 0 : 24 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-          >
-            <h1 className="h1 mb-5">{title}</h1>
-            <p className="lead mb-8">{lead}</p>
-            <div className="flex flex-wrap gap-3">
-              <a href={primaryCta.href} className="btn-primary">
-                {primaryCta.label}
-              </a>
-              {secondaryCta && (
-                <a
-                  href={secondaryCta.href}
-                  target={
-                    secondaryCta.href.startsWith("http") ? "_blank" : undefined
-                  }
-                  rel={
-                    secondaryCta.href.startsWith("http") ? "noopener" : undefined
-                  }
-                  className="btn-whatsapp"
-                >
-                  {secondaryCta.label}
-                </a>
-              )}
-            </div>
-          </motion.div>
+    /* data-nav-theme="dark": el fondo es oscuro, el navbar va en blanco. */
+    <section
+      data-nav-theme="dark"
+      className="relative isolate min-h-[760px] overflow-hidden lg:min-h-svh"
+    >
+      {/* Fondo: la foto ya viene desenfocada de origen + overlay #171715 al 75% */}
+      <Image
+        src="/img/hero-bg.jpg"
+        alt=""
+        fill
+        priority
+        sizes="100vw"
+        className="-z-10 object-cover"
+      />
+      <div aria-hidden className="absolute inset-0 -z-10 bg-ink/75" />
 
-          <motion.div
-            initial={{ opacity: 0, scale: reduce ? 1 : 0.94 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{
-              duration: 0.9,
-              delay: 0.15,
-              ease: [0.22, 1, 0.36, 1],
-            }}
-            className="mx-auto md:mx-0"
-          >
-            <Image
-              src={logo}
-              alt={logoAlt}
-              width={520}
-              height={520}
-              priority
-              className="max-w-[380px] w-full h-auto drop-shadow-[0_20px_40px_rgba(0,0,0,0.45)]"
-            />
-          </motion.div>
+      <div className="mx-auto flex min-h-[760px] w-full max-w-[1440px] flex-col px-6 pb-8 pt-[128px] sm:px-8 lg:min-h-svh lg:pt-[150px] xl:px-[72px]">
+        <div className="grid flex-1 gap-14 lg:grid-cols-[minmax(0,1fr)_270px] lg:gap-10">
+          {/* Columna de texto */}
+          <div>
+            <h1 className="font-display text-[clamp(2.75rem,6.1vw,6.5rem)] font-thin leading-[1.06] tracking-[-0.02em] text-white">
+              Transformamos
+              <br className="hidden sm:inline" />{" "}
+              personas, equipos
+              <br className="hidden sm:inline" />{" "}
+              e instituciones.
+            </h1>
+
+            <p className="mt-8 max-w-[400px] font-display text-[13px] font-normal leading-[1.62] text-white/85 sm:mt-10">
+              Diseñamos experiencias de formación que desarrollan habilidades,
+              fortalecen valores y generan resultados reales y sostenibles.
+            </p>
+
+            <div className="mt-7 flex flex-wrap gap-2.5">
+              <PillButton href="#contacto" variant="gold">
+                Inscríbete ahora
+              </PillButton>
+              <PillButton href="#servicios" variant="outline">
+                Inscríbete ahora
+              </PillButton>
+            </div>
+          </div>
+
+          {/* Columna de métricas */}
+          <div className="flex flex-col gap-4">
+            {STATS.map((s) => (
+              <div
+                key={s.label}
+                className="rounded-2xl bg-gold-400 px-9 py-5 lg:w-[270px]"
+              >
+                <div className="font-display text-[13.5px] font-normal leading-none text-white">
+                  {s.label}
+                </div>
+                <div className="mt-3 font-display text-[40px] font-thin leading-none text-white">
+                  {s.value}
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
 
-        {children}
+        {/* Card de Secundaria y Prepa, anclada abajo a la izquierda */}
+        <div className="mt-14 lg:mt-6 xl:-ml-9">
+          <PrepaCard />
+        </div>
       </div>
     </section>
   );

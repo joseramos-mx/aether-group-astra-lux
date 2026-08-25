@@ -1,6 +1,6 @@
 "use client";
 
-import { motion, useReducedMotion, type Variants } from "framer-motion";
+import { motion, type Variants } from "framer-motion";
 import type { ReactNode } from "react";
 
 type Props = {
@@ -18,9 +18,8 @@ export function Reveal({
   className,
   as = "div",
 }: Props) {
-  const reduce = useReducedMotion();
   const variants: Variants = {
-    hidden: { opacity: 0, y: reduce ? 0 : y },
+    hidden: { opacity: 0, y },
     visible: {
       opacity: 1,
       y: 0,
@@ -77,12 +76,11 @@ export function StaggerItem({
   className?: string;
   y?: number;
 }) {
-  const reduce = useReducedMotion();
   return (
     <motion.div
       className={className}
       variants={{
-        hidden: { opacity: 0, y: reduce ? 0 : y },
+        hidden: { opacity: 0, y },
         visible: {
           opacity: 1,
           y: 0,

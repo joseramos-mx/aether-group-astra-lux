@@ -1,6 +1,6 @@
 "use client";
 
-import { motion, useReducedMotion } from "framer-motion";
+import { motion } from "framer-motion";
 import { waUrl } from "@/lib/config";
 
 type Props = {
@@ -11,10 +11,9 @@ type Props = {
 };
 
 export function CtaBand({ title, description, primary, whatsapp }: Props) {
-  const reduce = useReducedMotion();
   return (
     <motion.div
-      initial={{ opacity: 0, y: reduce ? 0 : 30 }}
+      initial={{ opacity: 0, y: 30 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.2 }}
       transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
