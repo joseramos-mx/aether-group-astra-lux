@@ -203,10 +203,12 @@ const TextLoop = ({
 
     apply(0);
 
-    const prefersReduced =
-      typeof window !== "undefined" &&
-      window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    if (prefersReduced || speed <= 0) return undefined;
+    /* El original de React Bits aquí no crea el tween si el sistema pide menos
+       movimiento. Se retiró por decisión del cliente: el marquee es un elemento
+       central del diseño y debe girar siempre. Para volver a respetar la
+       preferencia, basta con reponer la comprobación de
+       matchMedia("(prefers-reduced-motion: reduce)"). */
+    if (speed <= 0) return undefined;
 
     const state = { offset: 0 };
     const tween = gsap.to(state, {
