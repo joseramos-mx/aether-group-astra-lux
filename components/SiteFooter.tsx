@@ -121,13 +121,15 @@ export function SiteFooter() {
         </div>
       </div>
 
-      {/* Wordmark de fondo, recortado por abajo */}
+      {/* Wordmark de fondo: sin contenedor ni padding, para que vaya de orilla
+         a orilla. El tamaño va en vw y no en px, así el texto conserva la misma
+         proporción respecto al ancho de la ventana en cualquier pantalla.
+         El coeficiente está medido en el navegador para esta cadena y este
+         tracking; si cambia el texto hay que volver a medirlo. */}
       <div aria-hidden className="pointer-events-none select-none overflow-hidden">
-        <div className="mx-auto w-full max-w-[1440px] px-6 sm:px-8 xl:px-[72px]">
-          <span className="block -mb-[0.22em] font-display text-[clamp(5rem,19vw,17rem)] font-normal leading-[0.8] tracking-[-0.03em] text-white/[0.055]">
-            Aether ✦
-          </span>
-        </div>
+        <span className="block -mb-[0.16em] whitespace-nowrap text-center font-display text-[11.5vw] font-normal leading-[0.78] tracking-[-0.03em] text-white/[0.055]">
+          AETHER ASTRA LUX
+        </span>
       </div>
     </footer>
   );
