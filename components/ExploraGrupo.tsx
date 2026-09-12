@@ -17,7 +17,15 @@ type Card = {
   href: string;
   title: string;
   desc: string;
-  art: { src: string; width: number; height: number; invert?: boolean };
+  art: {
+    src: string;
+    width: number;
+    height: number;
+    /* Invierte a blanco (solo sirve con arte monocromo y transparente) */
+    invert?: boolean;
+    /* El arte trae su propio fondo sólido y se monta como panel redondeado */
+    panel?: boolean;
+  };
   /* Colores propios de cada card */
   bg: string;
   title_: string;
@@ -30,7 +38,7 @@ const CARDS: Card[] = [
     href: "/servicios-empresariales",
     title: "Servicios empresariales",
     desc: "Permisos, dictámenes y trámites para tu operación",
-    art: { src: "/img/sec-servicios.svg", width: 657, height: 485 },
+    art: { src: "/img/marca-ara.jpg", width: 800, height: 400, panel: true },
     bg: "bg-[#111111]",
     title_: "text-white",
     desc_: "text-white/75",
@@ -40,7 +48,12 @@ const CARDS: Card[] = [
     href: "/capacitacion",
     title: "Centro de capacitación",
     desc: "Cursos y talleres para personas y equipos.",
-    art: { src: "/img/sec-capacitacion.svg", width: 585, height: 489 },
+    art: {
+      src: "/img/marca-novaris-capacitacion.jpg",
+      width: 800,
+      height: 376,
+      panel: true,
+    },
     bg: "bg-[#EDEDED]",
     title_: "text-[#111111]",
     desc_: "text-[#111111]/65",
@@ -82,8 +95,12 @@ export function ExploraGrupo() {
                 c.bg
               )}
             >
-              {/* Arte: caja de alto fijo, object-contain centra y escala */}
-              <div className="h-[220px] w-full sm:h-[250px] lg:h-[270px]">
+              {/* Arte: caja de alto fijo. Los logos de marca se montan como
+                  panel redondeado con su propio fondo, porque los PNG que
+                  entregaron no traen transparencia: el de ARA es negro sobre
+                  blanco y el de Novaris blanco sobre verde, así que recortarles
+                  el fondo los dejaría invisibles sobre estas cards. */}
+              <div className="flex h-[220px] w-full items-center sm:h-[250px] lg:h-[270px]">
                 <Image
                   src={c.art.src}
                   alt=""
@@ -91,7 +108,9 @@ export function ExploraGrupo() {
                   height={c.art.height}
                   unoptimized={c.art.src.endsWith(".svg")}
                   className={clsx(
-                    "h-full w-full object-contain",
+                    c.art.panel
+                      ? "w-full rounded-2xl"
+                      : "h-full w-full object-contain",
                     c.art.invert && "brightness-0 invert"
                   )}
                 />

@@ -25,13 +25,15 @@ const navLinks = [
 // Catálogo real del PDF, agrupado
 const cursosServicio = [
   "Servicio al cliente con enfoque en calidez",
+  "Servicio al cliente para meseros",
   "Curso intensivo de presentaciones ejecutivas en Canva",
+  "Habilidades de presentación",
   "Team building para equipos de alto rendimiento",
   "Experiencias WOW: superar expectativas del cliente",
-  "Sentido del trabajo",
+  "Sentido de vida para el trabajo",
   "Comunicación efectiva",
   "Trabajo en equipo",
-  "Resolución de problemas",
+  "Herramientas para solucionar problemas",
 ];
 
 const cursosLiderazgo = [
@@ -44,12 +46,17 @@ const cursosLiderazgo = [
   "Habilidades de negociación",
   "Guía para entrevistas de trabajo",
   "Inteligencia emocional en el trabajo",
+  "Resiliencia en el trabajo",
 ];
 
 const cursosEmprendimiento = [
   "Taller de emprendimiento: modelo de negocio (Canvas)",
   "Inteligencia artificial para emprendedores",
 ];
+
+/* Se calcula para que no se desfase al mover cursos entre categorías. */
+const totalCursos = () =>
+  cursosServicio.length + cursosLiderazgo.length + cursosEmprendimiento.length;
 
 export default function CapacitacionPage() {
   return (
@@ -99,7 +106,7 @@ export default function CapacitacionPage() {
             <Reveal delay={0.15}>
               <div className="rounded-3xl bg-white border border-brand-navy/10 p-8 shadow-[0_20px_60px_rgba(11,37,69,0.08)]">
                 <div className="grid grid-cols-3 gap-4">
-                  <StatMini label="Cursos" value="+19" />
+                  <StatMini label="Cursos" value={`+${totalCursos()}`} />
                   <StatMini label="Áreas" value="3" />
                   <StatMini label="Modalidades" value="3" />
                 </div>
