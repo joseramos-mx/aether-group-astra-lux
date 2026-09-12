@@ -32,6 +32,7 @@ export default function PrepaPage() {
         homeHref="/prepa"
         navLinks={navLinks}
         ctaLabel="Agendar visita"
+        ctaVariant="accent"
         ctaHref="#contacto"
       />
 

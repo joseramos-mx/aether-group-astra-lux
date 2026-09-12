@@ -18,7 +18,7 @@ export function CtaFinal() {
   return (
     <section data-nav-theme="light" className="bg-white pb-20 md:pb-28">
       <div className="mx-auto w-full max-w-[1440px] px-6 sm:px-8 xl:px-[72px]">
-        <div className="rounded-[36px] bg-[#0A0A0A] px-8 py-14 text-center sm:px-12 lg:rounded-full lg:px-24 lg:py-16">
+        <div className="rounded-[36px] bg-[#0A0A0A] px-8 py-14 text-center sm:px-12 lg:rounded-xl lg:px-24 lg:py-16">
           <h2 className="mx-auto max-w-[20ch] font-display text-[clamp(1.5rem,2.9vw,2.4rem)] font-normal leading-[1.18] tracking-[-0.015em] text-white">
             Hagamos oficial tu siguiente paso.
           </h2>
