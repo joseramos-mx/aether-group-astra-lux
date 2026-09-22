@@ -30,20 +30,20 @@
 }
 
 [data-brand="prepa"] {
-  --brand-bg: 13 27 52;
-  --brand-surface: 16 34 63;
-  --brand-surface-2: 22 41 74;
-  --brand-text: 245 247 251;
-  --brand-muted: 182 194 216;
-  --brand-accent: 242 131 33;
+  --brand-bg: 250 245 236;         /* cream cálido (assets oficiales) */
+  --brand-surface: 240 232 218;
+  --brand-surface-2: 230 220 200;
+  --brand-text: 13 27 52;          /* navy profundo */
+  --brand-muted: 90 100 130;
+  --brand-accent: 242 131 33;      /* naranja de marca */
   --brand-accent-strong: 217 109 13;
-  --brand-card: 20 40 80;
-  --brand-border: 255 255 255;
+  --brand-card: 255 255 255;
+  --brand-border: 13 27 52;
   --brand-cream: 250 245 236;
   --brand-cream-2: 240 232 218;
   --brand-ink: 13 27 52;
   --brand-navy: 13 27 52;
-  --brand-navy-2: 22 41 74;
+  --brand-navy-2: 27 58 107;
 }
 
 [data-brand="empresa"] {

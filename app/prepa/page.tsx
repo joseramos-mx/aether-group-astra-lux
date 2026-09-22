@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { WhatsAppFloat } from "@/components/WhatsAppFloat";
@@ -9,6 +8,7 @@ import { ContactBlock } from "@/components/ContactBlock";
 import { FloatingShapes } from "@/components/FloatingShapes";
 import { SubjectChips } from "@/components/SubjectChips";
 import { Marquee } from "@/components/Marquee";
+import { DotField } from "@/components/DotField";
 import { SITE_CONFIG, waUrl } from "@/lib/config";
 
 export const metadata: Metadata = {
@@ -37,65 +37,111 @@ export default function PrepaPage() {
       />
 
       <main>
-        {/* HERO */}
-        <section className="section-cream relative overflow-hidden pt-24 pb-24 md:pt-32 md:pb-28">
-          <FloatingShapes
-            shapes={[
-              { label: "MAT", x: "6%",  y: "10%", size: 120, hue: "#3b82f6", rotate: -12 },
-              { label: "BIO", x: "84%", y: "12%", size: 140, hue: "#22c55e", rotate: 14 },
-              { label: "HIS", x: "3%",  y: "58%", size: 100, hue: "#eab308", rotate: 8 },
-              { label: "ART", x: "88%", y: "62%", size: 130, hue: "#ef4444", rotate: -10 },
-              { label: "FIL", x: "12%", y: "82%", size: 85,  hue: "#a855f7", rotate: 12 },
-              { label: "QUI", x: "80%", y: "84%", size: 95,  hue: "#f97316", rotate: -6 },
-            ]}
+        {/* HERO
+           El -mt negativo extiende la sección debajo del header sticky (~88/92px
+           de alto). El pt lo compensa sumando el mismo alto + el espacio visual
+           que queremos entre el header y el título. Así el DotField cubre toda
+           la caja del hero, el header queda por delante con z-40, y el fade
+           cream de arriba oculta los puntos justo detrás del pill. */}
+        <section className="relative isolate -mt-[88px] overflow-hidden bg-brand-bg pt-[calc(88px+7rem)] pb-28 md:-mt-[92px] md:pt-[calc(92px+9rem)] md:pb-32">
+          {/* Fondo interactivo DotField */}
+          <div className="absolute inset-0 z-0">
+            <DotField
+              dotRadius={1.6}
+              dotSpacing={16}
+              bulgeStrength={58}
+              glowRadius={220}
+              glowColor="#F28321"
+              gradientFrom="rgba(242,131,33,0.55)"
+              gradientTo="rgba(13,27,52,0.35)"
+            />
+          </div>
+
+          {/* Fade cream superior: cubre visualmente la zona donde vive el header */}
+          <div
+            aria-hidden
+            className="pointer-events-none absolute inset-x-0 top-0 z-[1] h-[180px] md:h-[210px]"
+            style={{
+              background:
+                "linear-gradient(to bottom, rgb(var(--brand-bg)) 0%, rgb(var(--brand-bg) / 0.85) 55%, rgb(var(--brand-bg) / 0) 100%)",
+            }}
           />
 
-          <div className="container-page relative z-10 text-center">
+          {/* Halo suave detrás del contenido para reforzar contraste */}
+          <div
+            aria-hidden
+            className="pointer-events-none absolute inset-0 z-[1]"
+            style={{
+              background:
+                "radial-gradient(ellipse 55% 45% at 50% 50%, rgb(250 245 236 / 0.75) 0%, rgb(250 245 236 / 0) 70%)",
+            }}
+          />
+
+          {/* Materias orbitando en las esquinas (solo md+, ocultas a lectores) */}
+          <div
+            aria-hidden
+            className="pointer-events-none absolute inset-0 z-[2] hidden opacity-80 md:block"
+          >
+            <FloatingShapes
+              shapes={[
+                { label: "MAT", x: "3%",  y: "18%", size: 84,  hue: "#3b82f6", rotate: -12 },
+                { label: "BIO", x: "89%", y: "16%", size: 96,  hue: "#22c55e", rotate: 14 },
+                { label: "FIL", x: "8%",  y: "48%", size: 62,  hue: "#a855f7", rotate: 10 },
+                { label: "QUI", x: "86%", y: "50%", size: 70,  hue: "#f97316", rotate: -8 },
+                { label: "HIS", x: "2%",  y: "78%", size: 76,  hue: "#eab308", rotate: 8 },
+                { label: "ART", x: "90%", y: "80%", size: 88,  hue: "#ef4444", rotate: -10 },
+              ]}
+            />
+          </div>
+
+          {/* Contenido */}
+          <div className="container-page relative z-10">
             <Reveal>
-              <Image
-                src="/img/secundaria-prepa-logo.png"
-                alt="Secundaria y Prepa Novaris Pax"
-                width={1865}
-                height={457}
-                priority
-                className="mx-auto h-14 md:h-16 w-auto object-contain"
-              />
-              <div className="mt-5 inline-flex items-center gap-2 rounded-full bg-white/70 backdrop-blur px-3 py-1.5 text-[11px] tracking-[0.24em] uppercase text-[rgb(var(--brand-ink))] shadow-sm">
-                <span className="w-1.5 h-1.5 rounded-full bg-brand-accent" />
-                Novaris Pax
-              </div>
-              <h1 className="leading-[1.05] mt-6 text-[clamp(2.4rem,6vw,4.2rem)] max-w-[14ch] mx-auto">
-                Innovación. Cultura. Servicio.
-              </h1>
-              <p className="mt-5 max-w-lg mx-auto text-[rgb(var(--brand-ink)/0.72)] text-lg">
-                Secundaria y preparatoria que forman para la universidad y para la vida.
-              </p>
+              <div className="mx-auto max-w-2xl text-center">
+                <span className="inline-flex items-center gap-2 rounded-full border border-brand-navy/15 bg-white/70 px-3 py-1.5 text-[11px] uppercase tracking-[0.28em] text-brand-ink shadow-sm backdrop-blur">
+                  <span className="h-1.5 w-1.5 rounded-full bg-brand-accent" />
+                  Novaris Pax · Secundaria y Prepa
+                </span>
 
-              <div className="mt-8">
-                <SubjectChips
-                  items={[
-                    { label: "Ciencias",    color: "#3b82f6" },
-                    { label: "Salud",       color: "#22c55e" },
-                    { label: "Negocios",    color: "#eab308" },
-                    { label: "Humanidades", color: "#a855f7" },
-                    { label: "Arte",        color: "#ef4444" },
-                    { label: "Tecnología",  color: "#f97316" },
-                  ]}
-                />
-              </div>
+                <h1 className="mt-7 text-[clamp(2.6rem,7vw,4.8rem)] leading-[1.02] text-brand-ink">
+                  <span className="block">Innovación.</span>
+                  <span className="block">Cultura.</span>
+                  <span className="block">Servicio.</span>
+                </h1>
 
-              <div className="mt-8 flex flex-wrap gap-3 justify-center">
-                <a href="#admisiones" className="btn-ink">
-                  Admisión
-                </a>
-                <a
-                  href={waUrl("Hola, quiero información de Secundaria y Prepa Novaris Pax.", SITE_CONFIG.whatsappPrepa)}
-                  target="_blank"
-                  rel="noopener"
-                  className="btn-whatsapp"
-                >
-                  WhatsApp
-                </a>
+                <p className="mx-auto mt-6 max-w-md text-base text-brand-muted md:text-lg">
+                  Un bachillerato que forma para la universidad y para la vida.
+                </p>
+
+                <div className="mt-8">
+                  <SubjectChips
+                    items={[
+                      { label: "Ciencias",    color: "#3b82f6" },
+                      { label: "Salud",       color: "#22c55e" },
+                      { label: "Negocios",    color: "#eab308" },
+                      { label: "Humanidades", color: "#a855f7" },
+                      { label: "Arte",        color: "#ef4444" },
+                      { label: "Tecnología",  color: "#f97316" },
+                    ]}
+                  />
+                </div>
+
+                <div className="mt-10 flex flex-wrap justify-center gap-3">
+                  <a href="#admisiones" className="btn-accent">
+                    Admisión
+                  </a>
+                  <a
+                    href={waUrl(
+                      "Hola, quiero información de Secundaria y Prepa Novaris Pax.",
+                      SITE_CONFIG.whatsappPrepa
+                    )}
+                    target="_blank"
+                    rel="noopener"
+                    className="btn-whatsapp"
+                  >
+                    WhatsApp
+                  </a>
+                </div>
               </div>
             </Reveal>
           </div>
