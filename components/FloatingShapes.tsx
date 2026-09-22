@@ -7,8 +7,12 @@ type Shape = {
   x: string;
   y: string;
   size: number;
-  hue: string;
+  /* Cuando hay `image`, el bubble de color no se usa. `hue` queda opcional
+     para no romper llamadas existentes que pasan texto + color. */
+  hue?: string;
   rotate?: number;
+  image?: string;
+  alt?: string;
 };
 
 export function FloatingShapes({ shapes }: { shapes: Shape[] }) {
@@ -43,15 +47,36 @@ export function FloatingShapes({ shapes }: { shapes: Shape[] }) {
               repeat: Infinity,
               ease: "easeInOut",
             }}
-            className="rounded-[28%] shadow-[0_20px_50px_rgba(0,0,0,0.25)] flex items-center justify-center text-white"
-            style={{
-              width: s.size,
-              height: s.size,
-              fontSize: s.size * 0.42,
-              backgroundImage: `radial-gradient(circle at 30% 25%, rgba(255,255,255,0.6), transparent 40%), ${s.hue}`,
-            }}
+            className={
+              s.image
+                ? "flex items-center justify-center drop-shadow-[0_18px_28px_rgba(13,27,52,0.28)]"
+                : "rounded-[28%] shadow-[0_20px_50px_rgba(0,0,0,0.25)] flex items-center justify-center text-white"
+            }
+            style={
+              s.image
+                ? { width: s.size, height: s.size }
+                : {
+                    width: s.size,
+                    height: s.size,
+                    fontSize: s.size * 0.42,
+                    backgroundImage: `radial-gradient(circle at 30% 25%, rgba(255,255,255,0.6), transparent 40%), ${s.hue ?? "#0B2545"}`,
+                  }
+            }
           >
-            {s.label}
+            {s.image ? (
+              // eslint-disable-next-line @next/next/no-img-element
+              <img
+                src={s.image}
+                alt={s.alt ?? ""}
+                width={s.size}
+                height={s.size}
+                loading="lazy"
+                decoding="async"
+                className="h-full w-full object-contain"
+              />
+            ) : (
+              s.label
+            )}
           </motion.div>
         </motion.div>
       ))}

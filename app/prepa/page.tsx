@@ -28,7 +28,6 @@ export default function PrepaPage() {
       <Header
         logo="/img/secundaria-prepa-logo.png"
         logoAlt="Secundaria y Prepa Novaris Pax"
-        brandLabel="Novaris Pax"
         homeHref="/prepa"
         navLinks={navLinks}
         ctaLabel="Agendar visita"
@@ -77,19 +76,20 @@ export default function PrepaPage() {
             }}
           />
 
-          {/* Materias orbitando en las esquinas (solo md+, ocultas a lectores) */}
+          {/* Materias orbitando en las esquinas (solo lg+ para no invadir el
+             contenido en tablets; ocultas a lectores de pantalla). */}
           <div
             aria-hidden
-            className="pointer-events-none absolute inset-0 z-[2] hidden opacity-80 md:block"
+            className="pointer-events-none absolute inset-0 z-[2] hidden lg:block"
           >
             <FloatingShapes
               shapes={[
-                { label: "MAT", x: "3%",  y: "18%", size: 84,  hue: "#3b82f6", rotate: -12 },
-                { label: "BIO", x: "89%", y: "16%", size: 96,  hue: "#22c55e", rotate: 14 },
-                { label: "FIL", x: "8%",  y: "48%", size: 62,  hue: "#a855f7", rotate: 10 },
-                { label: "QUI", x: "86%", y: "50%", size: 70,  hue: "#f97316", rotate: -8 },
-                { label: "HIS", x: "2%",  y: "78%", size: 76,  hue: "#eab308", rotate: 8 },
-                { label: "ART", x: "90%", y: "80%", size: 88,  hue: "#ef4444", rotate: -10 },
+                { label: "MAT", alt: "Matemáticas",  image: "/img/image-OcGyav7XXTTVq0fDXxzmOVek6Noq7s.png", x: "3%",  y: "16%", size: 110, rotate: -8 },
+                { label: "BIO", alt: "Biología",     image: "/img/image-RSCqQgrjVGAcuRmzFKB3GMNZmCsun8.png", x: "88%", y: "14%", size: 118, rotate: 10 },
+                { label: "FIL", alt: "Filosofía",    image: "/img/image-QSRsEtiSwMn6J3x90Lu6c8XbiHBNQ0.png", x: "6%",  y: "48%", size: 92,  rotate: 6 },
+                { label: "QUI", alt: "Química",      image: "/img/image-8cHnCfUnD1rjdivXEa5crfeDjs41C3.png", x: "89%", y: "48%", size: 100, rotate: -6 },
+                { label: "HIS", alt: "Historia",     image: "/img/image-BUnsInn0zdX2ZdtHBgDnrtgdofFSLm.png", x: "2%",  y: "78%", size: 108, rotate: 6 },
+                { label: "ART", alt: "Arte",         image: "/img/image-cJPmZcdC9Z6FpqJD2sWL1ufe3qEGmT.png", x: "89%", y: "80%", size: 116, rotate: -10 },
               ]}
             />
           </div>
